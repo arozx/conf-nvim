@@ -1,16 +1,29 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
 return {
   'nvim-orgmode/orgmode',
-  event = 'VeryLazy',
+  event = 'VeryLazy', -- Only loads the plugin when a org file is opened
   ft = { 'org' },
   config = function()
-    -- Setup orgmode
+    -- Treesitter grammar for org
+    -- require('orgmode').setup_ts_grammar()
+
     require('orgmode').setup {
       org_agenda_files = '~/orgfiles/**/*',
       org_default_notes_file = '~/orgfiles/refile.org',
+
+      org_todo_keywords = { 'TODO', 'WAITING', '|', 'DONE', 'CANCELLED' },
+
+      org_capture_templates = {
+        t = {
+          description = 'Task',
+          template = '* TODO %?\n  %u',
+          target = '~/orgfiles/refile.org',
+        },
+        j = {
+          description = 'Journal',
+          template = '* %<%Y-%m-%d> %?\nEntered on %U',
+          target = '~/orgfiles/journal.org',
+        },
+      },
     }
 
     -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
