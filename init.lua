@@ -673,6 +673,8 @@ require('lazy').setup({
             },
           },
         },
+        -- Add elm languages server
+        elmls = {},
       }
 
       -- Ensure the servers and tools above are installed
