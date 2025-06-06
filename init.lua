@@ -792,6 +792,11 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
+      'Snikimonkd/cmp-go-pkgs',
+      'vrslev/cmp-pypi',
+      'chrisgrieser/cmp-nerdfont',
+      'github/copilot.vim',
+      'hrsh7th/cmp-copilot',
     },
     config = function()
       -- See `:help cmp`
@@ -865,6 +870,10 @@ require('lazy').setup({
             -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
             group_index = 0,
           },
+          { name = 'go_pkgs' },
+          { name = 'pypi' },
+          { name = 'nerdfont' },
+          { name = 'copilot' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
