@@ -1,7 +1,8 @@
 local M = {}
 
 function M.run_file()
-  local file = vim.fn.fnamemodify(vim.fn.expand '%:p', ':p')
+  vim.cmd 'write'
+  local file = vim.fn.expand '%:p'
   local ext = vim.fn.expand '%:e'
 
   if ext == 'py' then
