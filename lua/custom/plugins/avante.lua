@@ -5,8 +5,21 @@ return {
   ---@module 'avante'
   ---@type avante.Config
   opts = {
-    -- Set the provider to 'copilot'
-    provider = 'copilot', -- This tells Avante to use GitHub Copilot as its AI source.
+    provider = 'copilot',
+    providers = {
+      copilot = {
+        model = 'claude-sonnet-4.5',
+      },
+    },
+    acp_providers = {
+      ['gemini-cli'] = {
+        command = 'gemini',
+        args = { '--experimental-acp' },
+        env = {
+          NODE_NO_WARNINGS = '1',
+        },
+      },
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
