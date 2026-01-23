@@ -685,7 +685,7 @@ require('lazy').setup({
         -- Your custom jdtls settings goes here
       }
 
-      require('lspconfig').jdtls.setup {
+      vim.lsp.config('jdtls', {
         --				settings = {
         --					java = {
         --						configuration = {
@@ -699,14 +699,14 @@ require('lazy').setup({
         --						},
         --					},
         --				},
-      }
+      })
 
       -- The following loop will configure each server with the capabilities we defined above.
       -- This will ensure that all servers have the same base configuration, but also
       -- allow for server-specific overrides.
       for server_name, server_config in pairs(servers) do
         server_config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_config.capabilities or {})
-        require('lspconfig')[server_name].setup(server_config)
+        vim.lsp.config(server_name, server_config)
       end
 
       -- Ensure the servers and tools above are installed
@@ -738,7 +738,7 @@ require('lazy').setup({
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            vim.lsp.config(server_name, server)
           end,
         },
       }
