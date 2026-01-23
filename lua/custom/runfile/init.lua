@@ -46,4 +46,22 @@ function M.run_tests()
   end
 end
 
+function M.run_tests()
+	local cwd = vim.fn.expand("%:h")
+	local ext = vim.fn.expand("%:e")
+
+	if ext == "py" then
+		-- Run pytest in the current directory
+		vim.cmd("split | terminal cd " .. cwd .. " && python3 -m pytest")
+	elseif ext == "java" then
+		-- Run all Java tests in the current directory
+		vim.cmd("split | terminal cd " .. cwd .. " && for f in AutoTestLevel*.java; do [ -f \"$f\" ] && python3 run_java_tests.py \"${f%.java}\"; done")
+	elseif ext == "c" then
+		-- Run tests in the current directory
+		vim.cmd("split | terminal cd " .. cwd .. " && make test")
+	else
+		print("No test command for ." .. ext)
+	end
+end
+
 return M
