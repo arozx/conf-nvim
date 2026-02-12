@@ -1,0 +1,66 @@
+{
+  "Arrow Function": {
+    "prefix": "af",
+    "body": "const ${1:name} = (${2:args}) => ${3:{$0\\}}",
+    "description": "Arrow function"
+  },
+  "Function": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:name}(${2:args}) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Function declaration"
+  },
+  "Console Log": {
+    "prefix": "cl",
+    "body": "console.log(${0});",
+    "description": "Console log"
+  },
+  "Console Error": {
+    "prefix": "ce",
+    "body": "console.error(${0});",
+    "description": "Console error"
+  },
+  "Try Catch": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t${1}",
+      "} catch (${2:error}) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Try catch block"
+  },
+  "Promise": {
+    "prefix": "prom",
+    "body": [
+      "new Promise((resolve, reject) => {",
+      "\t${0}",
+      "})"
+    ],
+    "description": "New Promise"
+  },
+  "Async Function": {
+    "prefix": "afn",
+    "body": [
+      "async function ${1:name}(${2:args}) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Async function"
+  },
+  "Import": {
+    "prefix": "imp",
+    "body": "import ${1:module} from '${2:path}';",
+    "description": "Import statement"
+  },
+  "Export Default": {
+    "prefix": "expd",
+    "body": "export default ${0};",
+    "description": "Export default"
+  }
+}
+

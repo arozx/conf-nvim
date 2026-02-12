@@ -1,0 +1,65 @@
+{
+  "Function": {
+    "prefix": "def",
+    "body": [
+      "def ${1:function_name}(${2:args}):",
+      "\t${3:\"\"\"${4:Docstring}.\"\"\"}",
+      "\t${0:pass}"
+    ],
+    "description": "Create a Python function"
+  },
+  "Class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:ClassName}:",
+      "\t${2:\"\"\"${3:Docstring}.\"\"\"}",
+      "\t",
+      "\tdef __init__(self${4:, args}):",
+      "\t\t${0:pass}"
+    ],
+    "description": "Create a Python class"
+  },
+  "Main": {
+    "prefix": "main",
+    "body": [
+      "def main():",
+      "\t${0:pass}",
+      "",
+      "",
+      "if __name__ == '__main__':",
+      "\tmain()"
+    ],
+    "description": "Main function with if __name__ == '__main__'"
+  },
+  "Try Except": {
+    "prefix": "try",
+    "body": [
+      "try:",
+      "\t${1:pass}",
+      "except ${2:Exception} as ${3:e}:",
+      "\t${0:pass}"
+    ],
+    "description": "Try except block"
+  },
+  "Import": {
+    "prefix": "imp",
+    "body": "import ${1:module}",
+    "description": "Import statement"
+  },
+  "From Import": {
+    "prefix": "from",
+    "body": "from ${1:module} import ${2:name}",
+    "description": "From import statement"
+  },
+  "List Comprehension": {
+    "prefix": "lc",
+    "body": "[${1:item} for ${2:item} in ${3:iterable}]",
+    "description": "List comprehension"
+  },
+  "Dict Comprehension": {
+    "prefix": "dc",
+    "body": "{${1:key}: ${2:value} for ${3:key}, ${4:value} in ${5:iterable}}",
+    "description": "Dict comprehension"
+  }
+}
+
